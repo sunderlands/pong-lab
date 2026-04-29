@@ -159,7 +159,7 @@ impl Stateful for Ball {
     type S = BallState;
 
     fn on_state_enter(&mut self) {
-        match self.state {
+        match self.state() {
             BallState::Frozen => {
                 let mut base_mut = self.base_mut();
                 base_mut.call_deferred("set_sleeping", &[true.to_variant()]);
@@ -192,7 +192,7 @@ impl Stateful for Ball {
     }
 
     fn on_state_exit(&mut self) {
-        match self.state {
+        match self.state() {
             BallState::Frozen => {}
             BallState::Aiming => {
                 self.arrow.hide();
