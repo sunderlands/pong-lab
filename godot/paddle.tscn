@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bsvaw1i8xtukb"]
+
+[ext_resource type="Texture2D" uid="uid://55kb8j2ilm3" path="res://art/paddle.png" id="1_0sbc1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0sbc1"]
+height = 200.0
+
+[node name="Paddle" type="Paddle" unique_id=1037282798]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=784745637]
+texture = ExtResource("1_0sbc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1036445214]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0sbc1")

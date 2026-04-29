@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bxydsb3ub7npf"]
+
+[ext_resource type="PackedScene" uid="uid://dy3wsajldrccu" path="res://ui.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bowwqxgnhj615" path="res://ball.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bsvaw1i8xtukb" path="res://paddle.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dqn715l5t21jx" path="res://brick.tscn" id="4_1bvp3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(50, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(1380, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(50, 720)
+
+[node name="Main" type="Main" unique_id=352498846]
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=311633381]
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=2111852527]
+position = Vector2(-25, 360)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls" unique_id=1509684889]
+position = Vector2(640, -25)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls" unique_id=1351418957]
+position = Vector2(1305, 360)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Ball" parent="." unique_id=1075724554 instance=ExtResource("2_0xm2m")]
+position = Vector2(640, 680)
+
+[node name="Paddle" parent="." unique_id=1037282798 instance=ExtResource("2_h2yge")]
+position = Vector2(640, 700)
+
+[node name="UI" parent="." unique_id=100177979 instance=ExtResource("1_ig7tw")]
+
+[node name="Bricks" type="Bricks" parent="." unique_id=1945076457]
+brick = ExtResource("4_1bvp3")

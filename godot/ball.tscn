@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bowwqxgnhj615"]
+
+[ext_resource type="Texture2D" uid="uid://c60fomvbhtw7u" path="res://art/ball.png" id="1_x8fbi"]
+[ext_resource type="Texture2D" uid="uid://swxhelr4mvip" path="res://art/arrow.png" id="2_41u45"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8fbi"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41u45"]
+radius = 11.0
+
+[node name="Ball" type="Ball" unique_id=1075724554]
+physics_material_override = SubResource("PhysicsMaterial_x8fbi")
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1069962646]
+texture = ExtResource("1_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926744041]
+shape = SubResource("CircleShape2D_41u45")
+
+[node name="Arrow" type="Node2D" parent="." unique_id=491391717]
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow" unique_id=1634523314]
+position = Vector2(0, -45)
+texture = ExtResource("2_41u45")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=176554653]
