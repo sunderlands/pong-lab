@@ -135,7 +135,7 @@ impl Stateful for Main {
                 self.paddle.bind_mut().aiming_position();
                 self.ball.bind_mut().aiming_position();
 
-                self.bricks.bind_mut().clear_bricks();
+                self.bricks.bind_mut().queue_free_all_bricks();
                 self.bricks.bind_mut().generate();
                 self.bricks.show();
 

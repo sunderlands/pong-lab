@@ -42,7 +42,7 @@ impl Bricks {
         }
     }
 
-    pub fn clear_bricks(&mut self) {
+    pub fn queue_free_all_bricks(&mut self) {
         self.base()
             .get_tree()
             .call_group("bricks", "queue_free", &[]);
