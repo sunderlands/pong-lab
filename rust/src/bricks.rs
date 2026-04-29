@@ -31,12 +31,10 @@ impl Bricks {
 
                 let mut brick = self.brick.instantiate_as::<Brick>();
                 brick.set_position(Vector2::new(x, y));
-                brick.signals().hited().connect_other(&*self, |this| {
-                    this.count -= 1;
-                    if this.count == 0 {
-                        this.signals().cleared().emit();
-                    }
-                });
+                brick
+                    .signals()
+                    .hitted()
+                    .connect_other(&*self, Self::on_brick_hited);
 
                 self.base_mut().add_child(&brick);
                 self.count += 1;
@@ -48,5 +46,12 @@ impl Bricks {
         self.base()
             .get_tree()
             .call_group("bricks", "queue_free", &[]);
+    }
+
+    fn on_brick_hited(&mut self) {
+        self.count -= 1;
+        if self.count == 0 {
+            self.signals().cleared().emit();
+        }
     }
 }

@@ -12,7 +12,7 @@ pub struct Brick {
 #[godot_api]
 impl IStaticBody2D for Brick {
     fn ready(&mut self) {
-        self.signals().hited().connect_self(|this| {
+        self.signals().hitted().connect_self(|this| {
             this.base_mut().queue_free();
         });
     }
@@ -21,5 +21,5 @@ impl IStaticBody2D for Brick {
 #[godot_api]
 impl Brick {
     #[signal]
-    pub fn hited();
+    pub fn hitted();
 }

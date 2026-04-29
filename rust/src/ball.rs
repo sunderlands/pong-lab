@@ -124,7 +124,7 @@ impl Ball {
             return;
         };
 
-        brick.signals().hited().emit();
+        brick.signals().hitted().emit();
     }
 
     pub fn aiming_position(&mut self) {

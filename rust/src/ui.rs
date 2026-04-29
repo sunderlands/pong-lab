@@ -14,8 +14,8 @@ pub struct UI {
 
     state: UIState,
 
-    #[init(val = OnReady::manual())]
-    contents: OnReady<HashMap<UIState, Content>>,
+    #[init(val = Self::contents())]
+    contents: HashMap<UIState, Content>,
 
     #[init(node = "Label")]
     label: OnReady<Gd<Label>>,
