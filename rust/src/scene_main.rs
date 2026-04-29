@@ -57,7 +57,7 @@ impl INode for Main {
 
         self.bricks
             .signals()
-            .cleared()
+            .bricks_cleared()
             .connect_other(&*self, Self::on_bricks_cleared);
 
         self.ui

@@ -16,7 +16,7 @@ pub struct Bricks {
 #[godot_api]
 impl Bricks {
     #[signal]
-    pub fn cleared();
+    pub fn bricks_cleared();
 
     pub fn generate(&mut self) {
         self.count = 0;
@@ -51,7 +51,7 @@ impl Bricks {
     fn on_brick_hited(&mut self) {
         self.count -= 1;
         if self.count == 0 {
-            self.signals().cleared().emit();
+            self.signals().bricks_cleared().emit();
         }
     }
 }

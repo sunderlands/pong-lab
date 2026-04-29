@@ -9,7 +9,7 @@ bounce = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkspu"]
 size = Vector2(80, 32)
 
-[node name="Brick" type="Brick" unique_id=919387006]
+[node name="Brick" type="Brick" unique_id=919387006 groups=["bricks"]]
 physics_material_override = SubResource("PhysicsMaterial_awxk8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1074626808]
