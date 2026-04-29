@@ -27,8 +27,6 @@ pub struct UI {
 #[godot_api]
 impl ICanvasLayer for UI {
     fn ready(&mut self) {
-        self.contents.init(Self::contents());
-
         self.button
             .signals()
             .button_up()
