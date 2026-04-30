@@ -46,12 +46,11 @@ impl ICharacterBody2D for Paddle {
         }
 
         let position = self.base().get_position();
-        let target_x = (position.x + self.x_offset).clamp(self.clamp_range.x, self.clamp_range.y);
+        let target_x = (position.x + std::mem::take(&mut self.x_offset))
+            .clamp(self.clamp_range.x, self.clamp_range.y);
 
         self.base_mut()
             .set_position(Vector2::new(target_x, position.y));
-
-        self.x_offset = 0.0;
     }
 }
 
